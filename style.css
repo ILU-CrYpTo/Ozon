@@ -1,0 +1,895 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  left: 0%;
+  top: 0%;
+
+  width: 1vw;
+  height: 4300px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: "DynaPuff", sans-serif;
+  font-weight: 700;
+  background-color: rgb(13,0,149);
+}
+
+.dynapuff-font {
+  font-family: "DynaPuff", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.header {
+  background-color: rgb(253, 241, 250);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 10px;
+  height: min-content;
+  left: 50%;
+  max-width: 1380px;
+  overflow: visible;
+  padding: 0 24px;
+  position: fixed;
+  top: 24px;
+  transform: translate(-50%);
+  width: 50%;
+  z-index: 7;
+  color: rgb(255,1,74);
+  border-radius: 50px;
+  font-size: 50px;
+}
+
+.name {
+  padding: 10px 10px;
+  align-content:start;
+  align-items: start;
+  
+}
+
+.name:hover {
+  color: rgb(151, 2, 44);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.links {
+
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 30px;
+  height: min-content;
+  justify-content: center;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  width: min-content;
+}
+
+.links a:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.15s;
+}
+
+.tg img {
+  width: 32px;
+}
+
+.x img {
+  width: 30px;
+}
+
+.dex {
+  margin-top: 13px;
+}
+
+.dex img {
+  width: 38px;
+}
+
+.buy1 button{
+  margin-right: 70px;
+  color: rgb(253, 241, 250);
+  background-color: rgb(255,1,74);
+  font-family: "DynaPuff", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  width: 100px;
+  height: 62px;
+  border-radius: 35px;
+  border: none;
+  
+}
+
+.buy1 button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+/*навигация*/
+.menu-wrap {
+  position: fixed;
+  top: 3.6%;
+  left: 72%;
+  z-index: 8;
+  border-radius: 10px;
+ 
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  padding: 1rem;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px; 
+ 
+}
+
+:root {
+  --primary-color: rgb(255,1,74);
+  --overlay-color: rgba(9, 4, 59, 0.85);
+  --menu-speed: 0.75s;
+}
+
+.menu-wrap .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 7px;
+  background: rgb(253, 241, 250);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  
+}
+
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 6px;
+  border-radius: 7px;
+  background: inherit;
+  
+}
+
+.menu-wrap .hamburger > div::after {
+  top: 10px;
+}
+
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition:  opacity 0.4s ease 0.4s;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: var(--overlay-color);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: rgb(253, 241, 250);
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+/*навигация*/
+
+.title {
+  position: absolute;
+  left: 18%;
+}
+
+.title h1 {
+  color: rgb(253, 241, 250);
+  font-size: 70px;
+  font-weight: 100;
+  z-index: 5;
+  position: absolute;
+  margin-top: 300px;
+  margin-left: 500px;
+}
+
+.title h2 {
+  color: rgb(253, 241, 250);
+  font-size: 20px;
+  font-weight: 100;
+  z-index: 5;
+  position: absolute;
+  margin-top: 390px;
+  margin-left: 400px;
+  width: 400px;
+}
+
+.title .star{
+  margin-top: -230px;
+  margin-left: 105px;
+  z-index: 4;
+  width: 1000px;
+  position: absolute;
+  animation-name: rotation;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.helicopter {
+  z-index: 4;
+  width: 500px;
+  position: absolute;
+  margin-left: 670px;
+  margin-top: 90px;
+}
+
+.ufo { 
+  margin-left: 140px;
+  margin-top: 220px;
+  z-index: 4;
+  width: 300px;
+  position: absolute;
+  animation: infinityFloat 3s infinite linear;
+}
+
+@keyframes infinityFloat {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20px, -10px);
+  }
+  50% {
+    transform: translate(0, -20px);
+  }
+  75% {
+    transform: translate(-20px, -10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes rotation {
+  0% {
+      transform:rotate(0deg);
+  }
+  100% {
+      transform:rotate(360deg);
+  }
+}
+
+.title .buy2 {
+  margin-top: 470px;
+  margin-left: 538px;
+  position: absolute;
+  z-index: 5;
+}
+
+.buy2 button{
+  color: rgb(253, 241, 250);
+  background-color: rgb(13,0,149);
+  font-family: "DynaPuff", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  width: 130px;
+  height: 68px;
+  border-radius: 35px;
+  border: rgb(253, 241, 250) 4px solid;
+  
+}
+
+.buy2 button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.get {
+  background-color: rgb(253, 241, 250);
+  position: absolute;
+  width: 1000px;
+  margin-top: 640px;
+  margin-left: 440px;
+  z-index: 5;
+  height: 270px;
+  border-radius: 40px;
+  text-align: center;
+  color: rgb(13,0,149);
+}
+
+.get h1 {
+  font-size: 46px;
+  margin-left: 20px;
+
+}
+
+.marquee-container {
+  margin-top: 40px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.marquee {
+  display: flex;
+  width: 200%; /* Дважды шире, чтобы вместить две копии контента */
+  animation: marquee-animation 6s linear infinite; /* Скорость анимации */
+}
+
+.marquee-content {
+  display: flex;
+}
+
+.marquee-button {
+  font-family: "DynaPuff", sans-serif;
+  background-color: rgb(2535, 1, 74);
+  border: none;
+  color: rgb(253, 241, 250);
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 50px;
+
+}
+.marquee-button:hover {
+  background-color: rgb(151, 2, 44);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+
+@keyframes marquee-animation {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-7.7%); /* Перемещаем на половину ширины, чтобы имитировать бесконечность */
+  }
+}
+
+.poloso4ka {
+  margin-top: 28px;
+  background-color: rgb(13,0,149);
+  width: 100%;
+  height: 20px;
+}
+
+.skate {
+  position: absolute;
+  z-index: 4;
+  margin-top: 360px;
+  margin-left: 1100px;
+  width: 300px;
+}
+
+.copy-button {
+  margin-top: 600px;
+  margin-left: 460px;
+  position: absolute;
+  padding: 20px;
+  background-color: rgb(225, 1, 74);
+  color: rgb(253, 241, 250);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: top;
+  width: 470px;
+  font-family: "DynaPuff", sans-serif;
+  font-weight: 200;
+  font-size: 12px;
+  height: 80px;
+  border: rgb(253, 241, 250) 4px solid;
+  border-radius: 20px;
+  z-index: 4;
+  transition: background-color 0.5s; /* Добавлена плавность */
+}
+
+.copy-button.clicked {
+  background-color: rgb(151, 2, 44);
+}
+
+.copy-button span {
+  margin-top: -22px;
+  float: right;
+  
+}
+.copy-button img {
+  margin-top: -22px;
+  float: left;
+  width: 18px;
+}
+
+.about {
+  color: rgb(253, 241, 250);
+  font-size: 80px;
+  font-weight: 100;
+  z-index: 5;
+  position: absolute;
+  margin-top: 1000px;
+  margin-left: 500px;
+}
+
+.two-imgs {
+  background-color: rgb(253, 241, 250);
+  width: 900px;
+  height: 450px;
+  position: absolute;
+  z-index: 1;
+  margin-top: 1250px;
+  margin-left: 500px;
+  border-radius: 30px;
+  
+}
+
+.vertical {
+  position: absolute;
+  margin-top: -19px;
+  width: 300px;
+  height: 120%;
+  background-color: rgb(13,0,149);
+  z-index: 4;
+  margin-left: 300px;
+}
+
+.chest {
+  float: left;
+  margin-top: 60px;
+  height: 360px;
+  width: 310px;
+  z-index: 2;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.moon {
+  position: absolute;
+  float: right;
+  margin-left: -50px;
+  margin-top: 76px;
+  width: 42%;
+  z-index: 5;
+}
+
+.text-about {
+  position: absolute;
+  width: 280px;
+  height: 360px;
+  background-color: rgb(27, 14, 168);
+  border: rgb(253, 241, 250) 4px solid;
+  top: 120%;
+  left: 42.2%;
+  color: rgb(253, 241, 250);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50px;
+  z-index: 2;
+}
+
+.text-about h1 {
+  font-size: 26px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.text-about p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.buy2 {
+  position: absolute;
+  bottom: 100px;
+  margin-left: -70px;
+}
+
+.buy2 button {
+  color: rgb(253, 241, 250);
+  background-color: rgb(255,1,74);
+  font-family: "DynaPuff", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  width: 140px;
+  height: 62px;
+  border-radius: 35px;
+  border: none;
+  z-index: 5;
+  border: rgb(253, 241, 250) 3px solid;
+}
+
+.buy2 button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.team {
+  color: rgb(253, 241, 250);
+  position: absolute;
+  left: 0%;
+  top: 1760px;
+  width: 100%;
+  height: 800px;
+  background: linear-gradient(to bottom, rgb(13,0,149), rgba(15, 3, 119, 0.39), rgba(11, 2, 94, 0.473), rgba(14, 3, 112, 0.795), rgb(13,0,149));
+}
+
+.team h1 {
+  margin-top: 60px;
+  font-size: 50px;
+}
+
+.team p {
+  margin-top: -0px;
+  font-size: 18px;
+  float: left;
+  text-align: start;
+  margin-top: 30px;
+  padding-left: 8px;
+  padding-right: 4px;
+}
+
+.grid-team {
+  position: absolute;
+  top: 27%;
+  left: 33%;
+  display: grid;
+  grid-template-columns: 270px 270px ;
+  column-gap: 100px;
+}
+
+.grid-team h1 {
+  margin-top: 0px;
+  text-align: start;
+  float: left;
+  padding-left: 8px;
+  padding-right: 4px;
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+
+.we {
+  height: 580px;
+  border-radius: 300px;
+  overflow: hidden;
+}
+
+.we img {
+  object-position: top;
+  object-fit: cover;
+  width: 100%;
+  background-color: rgb(253, 241, 250);
+  height: 240px;
+}
+
+.we:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: 0.18s;
+}
+
+.you {
+  height: 580px;
+  border-radius: 300px;
+  overflow: hidden;
+}
+
+.you img {
+  object-position: top;
+  object-fit: cover;
+  width: 100%;
+  background-color: rgb(253, 241, 250);
+  height: 240px;
+}
+
+.you:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: 0.18s;
+}
+
+.how {
+  color: rgb(253, 241, 250);
+  top: 2720px;
+  left: 445px;
+  position: relative;
+  width: 1000px;
+  height: 800px;
+  
+}
+
+.how .title {
+  margin-bottom: -10px;
+  font-size: 80px;
+  padding-top: 20px;
+  text-align: center;
+  left: 10%;
+  position: absolute;
+  width: 80%;
+  height: 120px;
+  background-color: rgb(42, 28, 190);
+  border-radius: 40px;
+}
+
+.grid-how {
+  left: 10%;
+  top: 20%;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 390px 390px;
+  column-gap: 20px;
+}
+
+.grid-how .text {
+  height: 465px;
+  border-radius: 50px;
+  background-color: rgb(42, 28, 190);
+}
+
+ol {
+	list-style-type: none; 
+	counter-reset: num;
+	margin: 0 0 0 60px;
+	padding: 15px 0 5px 0;
+	font-size: 16px;
+  margin-top: 20px;
+}
+ol li {
+	position: relative;	
+	margin: 0 0 0 0;
+	padding: 0 0 10px 0;
+  margin-bottom: 20px;
+  font-size: 25px;
+  text-align: start;
+}
+ol li:before {
+	content: counter(num); 
+	counter-increment: num;
+	display: inline-block;
+	position: absolute;
+	top: 0px;
+	left: -60px;
+	width: 50px;    
+	color: rgb(255,1,74);
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.grid-how .img {
+  border: rgb(253, 241, 250) 2px solid ;
+  height: 550px;
+  border-radius: 50px;
+  background-color: rgb(42, 28, 190);
+  text-align: center;
+}
+
+.grid-how .img img {
+  height: 100%;
+  width: 95%;
+  object-position: top;
+  object-fit: contain;
+  
+}
+
+.grid-how .img h1 {
+  position: absolute;
+  right: 100px;
+  bottom: 20px;
+  font-size: 50px;
+}
+
+.buy3 button{
+  color: rgb(253, 241, 250);
+  background-color: rgb(255,1,74);
+  font-family: "DynaPuff", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  width: 390px;
+  height: 68px;
+  border-radius: 35px;
+  border: none;
+  z-index: 5;
+  border: rgb(253, 241, 250) 2px solid;
+}
+
+.buy3 {
+  position: absolute;
+  bottom: 84px;
+  margin-left: -400px;
+}
+
+.buy3 button:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+#how-to-buy {
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  margin-top: -120px;
+
+}
+
+.bottom {
+  left: 10%;
+  width: 80%;
+  top: 3500px;
+  position: absolute;
+  text-align: center;
+  overflow: hidden;
+  height: 816px;
+}
+
+.bottom h1{
+  color: rgb(253, 241, 250);
+  margin-top: 2%;
+  font-size: 180px;
+  font-weight: 300;
+}
+
+.navigation {
+  text-decoration: none;
+  left: 110px;
+  margin-top: -40px;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: min-content;
+  justify-content: space-between;
+  max-width: 1198px;
+  overflow: visible;
+  padding: 0 24px;
+  position: absolute;
+  width: 100%;
+}
+
+.navigation a {
+  font-size: 22px;
+  color: rgb(253, 241, 250);
+}
+
+.navigation a:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: 0.18;
+}
+
+.buy4 {
+  position: absolute;
+  left: 43%;
+ 
+}
+
+.buy4 button {
+  color: rgb(253, 241, 250);
+  background-color: rgb(255,1,74);
+  font-family: "DynaPuff", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  width: 240px;
+  height: 80px;
+  border-radius: 35px;
+  border: none;
+  z-index: 5;
+  border: rgb(253, 241, 250) 3px solid;
+}
+
+.buy4 button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.chill {
+  object-fit: cover;
+  object-position: top;
+  height: 400px;
+  width: 700px;
+  position: absolute;
+  left: 28%;
+  bottom: 0%;
+}
